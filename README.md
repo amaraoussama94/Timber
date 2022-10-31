@@ -9,6 +9,7 @@ A dynamically generated activity graph to show your GitHub activities of last 31
   - [Attention ⚠](#attention-)
   -[The features and objects of a game]
 ##How to Use:(#how-to-use)
+press  escape to exit the game 
 install sfml :sudo apt-get install libsfml-dev
 install make :
               make
@@ -23,3 +24,6 @@ install make :
                                     •Chopping the tree causes the branches to fall.
                                     •The player must avoid the falling branches.
                                     •Repeat until time runs out or the player is squished.
+
+useful link :
+to resize image : https://www.simpleimageresizer.com/upload
