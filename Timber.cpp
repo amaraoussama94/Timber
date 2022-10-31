@@ -19,19 +19,14 @@ int main()
     spriteBackground.setTexture(textureBackground);
 // Set the spriteBackground to cover the screen
     spriteBackground.setPosition(0,0);
-// What is the player's score?
-    int playerScore;
-// What is the player's first initial
-    char playerInitial;
-// What is the value of pi
-    float valuePi;
-// Is the player alive or dead?
-    bool isAlive;
-//Initializing variables
-    playerScore = 0;
-    playerInitial = 'J';
-    valuePi = 3.141f;
-    isAlive = true;
+// Make a tree sprite
+    Texture textureTree;
+    textureTree.loadFromFile("graphics/tree_1_150x650.png");
+    Sprite spriteTree;
+    spriteTree.setTexture(textureTree);
+    spriteTree.setPosition(400,0);
+
+
 
     while (window.isOpen())
     {
@@ -59,6 +54,7 @@ Draw the scene
     window.clear();
 // Draw our game scene here
     window.draw(spriteBackground);
+    window.draw(spriteTree);
 // Show everything we just drew
     window.display();
     }
