@@ -5,6 +5,9 @@ Timber:Timber.o
 
 Timber.o:Timber.cpp
 	g++ -c Timber.cpp
-clean: rm *.o
+clean:
+#cleanup all object file
+	  -rm *.o $(objects) 
+	  
 
 
