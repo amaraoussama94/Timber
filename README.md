@@ -9,7 +9,9 @@ A dynamically generated activity graph to show your GitHub activities of last 31
   - [Attention ⚠](#attention-)
   -[The features and objects of a game]
 ##How to Use:(#how-to-use)
-
+install sfml :sudo apt-get install libsfml-dev
+install make :
+              make
 ##Generale info:(#how-to-use)
 
 *Game name: Planning Timber
