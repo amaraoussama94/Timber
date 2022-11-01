@@ -8,6 +8,4 @@ Timber.o:Timber.cpp
 clean:
 #cleanup all object file
 	  -rm *.o $(objects) 
-	  
-
 

@@ -5,6 +5,8 @@ App:testSFML.o
 
 testSFML.o:testSFML.cpp
 	g++ -c testSFML.cpp
-clean: rm *.o
+clean: 
+#cleanup all object file
+	  -rm *.o $(objects) 
 
 

@@ -68,10 +68,18 @@ int main()
 ****************************************
 Handle the players input
 ****************************************
-*/
-    if (Keyboard::isKeyPressed(Keyboard::Escape))
+*/   
+//normale  mode  close  the  game using the  button
+    Event event;
+    if (window.pollEvent(event)  ) 
         {
-            window.close();
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+// press escape  key to close the game 
+    if  (Keyboard::isKeyPressed(Keyboard::Escape)) 
+        {
+                window.close();
         }
 /*
 ****************************************make
