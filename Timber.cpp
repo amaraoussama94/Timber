@@ -36,7 +36,30 @@ int main()
     bool beeActive = false;
 // How fast can the bee fly
     float beeSpeed = 0.0f;
-
+// make 3 cloud sprites from 1 texture
+    Texture textureCloud;
+// Load 1 new texture
+    textureCloud.loadFromFile("graphics/cloud.png");
+// 3 New sprites with the same texture
+    Sprite spriteCloud1;
+    Sprite spriteCloud2;
+    Sprite spriteCloud3;
+    spriteCloud1.setTexture(textureCloud);
+    spriteCloud2.setTexture(textureCloud);
+    spriteCloud3.setTexture(textureCloud);
+// Position the clouds on the left of the screen
+// at different heights
+    spriteCloud1.setPosition(0, 0);
+    spriteCloud2.setPosition(0, 130);
+    spriteCloud3.setPosition(0, 260);
+// Are the clouds currently on screen?
+    bool cloud1Active = false;
+    bool cloud2Active = false;
+    bool cloud3Active = false;
+// How fast is each cloud?
+    float cloud1Speed = 0.0f;
+    float cloud2Speed = 0.0f;
+    float cloud3Speed = 0.0f;
     while (window.isOpen())
     {
 /*
