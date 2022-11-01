@@ -28,10 +28,10 @@ int main()
 
 // Prepare the bee
     Texture textureBee;
-    textureBee.loadFromFile("graphics/bee.png");
+    textureBee.loadFromFile("graphics/bee_50.png");
     Sprite spriteBee;
     spriteBee.setTexture(textureBee);
-    spriteBee.setPosition(0,550);
+    spriteBee.setPosition(0,475);
 // Is the bee currently moving?
     bool beeActive = false;
 // How fast can the bee fly
@@ -39,7 +39,7 @@ int main()
 // make 3 cloud sprites from 1 texture
     Texture textureCloud;
 // Load 1 new texture
-    textureCloud.loadFromFile("graphics/cloud.png");
+    textureCloud.loadFromFile("graphics/cloud_50.png");
 // 3 New sprites with the same texture
     Sprite spriteCloud1;
     Sprite spriteCloud2;
@@ -50,8 +50,8 @@ int main()
 // Position the clouds on the left of the screen
 // at different heights
     spriteCloud1.setPosition(0, 0);
-    spriteCloud2.setPosition(0, 130);
-    spriteCloud3.setPosition(0, 260);
+    spriteCloud2.setPosition(0, 100);
+    spriteCloud3.setPosition(0, 200);
 // Are the clouds currently on screen?
     bool cloud1Active = false;
     bool cloud2Active = false;
@@ -87,10 +87,10 @@ Draw the scene
 // Draw our game scene here
     window.draw(spriteBackground);
     window.draw(spriteTree);
-   // window.draw(spriteBee);
-    //window.draw(spriteCloud1);
-    //window.draw(spriteCloud2); 
-   // window.draw(spriteCloud3);  
+    window.draw(spriteBee);
+    window.draw(spriteCloud1);
+    window.draw(spriteCloud2); 
+    window.draw(spriteCloud3);  
 // Show everything we just drew
     window.display();
     }
