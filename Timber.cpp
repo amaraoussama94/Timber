@@ -1,5 +1,6 @@
 // Include important libraries here
 #include <SFML/Graphics.hpp>
+#include <sstream>
 // Make code easier to type with "using namespace"
 using namespace sf;
 // This is where our game starts from
@@ -64,6 +65,33 @@ int main()
     Clock clock;
 // Track whether the game is running
     bool paused = true;
+// Draw some text
+    int score = 0;
+    Text messageText;
+    Text scoreText;
+// We need to choose a font
+    Font font;
+    font.loadFromFile("fonts/KOMIKAP_.ttf");
+// Set the font to our message
+    messageText.setFont(font);
+    scoreText.setFont(font);
+// Assign the actual message
+    messageText.setString("Press Enter to start!");
+    scoreText.setString("Score = 0");
+// Make it really big
+    messageText.setCharacterSize(75);
+    scoreText.setCharacterSize(50);
+// Choose a color
+    messageText.setFillColor(Color::White);
+    scoreText.setFillColor(Color::White);
+// Position the text
+    FloatRect textRect = messageText.getLocalBounds();
+    messageText.setOrigin(textRect.left +
+    textRect.width / 2.0f,
+    textRect.top +
+    textRect.height / 2.0f);
+    messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
+    scoreText.setPosition(20, 20);
     while (window.isOpen())
     {
 /*
@@ -187,6 +215,10 @@ Update the scene
             cloud3Active = false;
             }
         }
+// Update the score text
+        std::stringstream ss;
+        ss<< "Score = " << score;
+        scoreText.setString(ss.str());
     } // End if(!paused)
 /*
 ****************************************
@@ -205,6 +237,13 @@ Draw the scene
     window.draw(spriteTree);
 // Draw the insect
     window.draw(spriteBee);
+// Draw the score
+    window.draw(scoreText);
+    if (paused)
+    {
+// Draw our message
+        window.draw(messageText);
+    }
 // Show everything we just drew
     window.display();
     }
