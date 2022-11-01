@@ -63,6 +63,16 @@ int main()
     float cloud3Speed = 0.0f;
 // Variables to control time itself
     Clock clock;
+    // Time bar
+    RectangleShape timeBar;
+    float timeBarStartWidth = 400;
+    float timeBarHeight =40;
+    timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
+    timeBar.setFillColor(Color::Red);
+    timeBar.setPosition((1080 / 2) - timeBarStartWidth / 2, 700);
+    Time gameTimeTotal;
+    float timeRemaining = 6.0f;
+    float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
 // Track whether the game is running
     bool paused = true;
 // Draw some text
@@ -86,10 +96,7 @@ int main()
     scoreText.setFillColor(Color::White);
 // Position the text
     FloatRect textRect = messageText.getLocalBounds();
-    messageText.setOrigin(textRect.left +
-    textRect.width / 2.0f,
-    textRect.top +
-    textRect.height / 2.0f);
+    messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
     messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
     scoreText.setPosition(20, 20);
     while (window.isOpen())
@@ -115,6 +122,9 @@ Handle the players input
     if (Keyboard::isKeyPressed(Keyboard::Return))
     {
     paused = false;
+// Reset the time and the score
+    score = 0;
+    timeRemaining = 6;
     }
 /*
 **************************************** 
@@ -125,6 +135,21 @@ Update the scene
     {
 // Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
         Time dt = clock.restart();
+// Subtract from the amount of time remaining
+    timeRemaining -= dt.asSeconds();
+// size up the time bar
+    timeBar.setSize(Vector2f(timeBarWidthPerSecond *timeRemaining, timeBarHeight));
+    if (timeRemaining<= 0.0f) 
+    {
+// Pause the game
+        paused = true;
+// Change the message shown to the player
+        messageText.setString("Out of time!!");
+//Reposition the text based on its new size
+        FloatRect textRect = messageText.getLocalBounds();
+        messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
+        messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
+    }
 // Setup the bee
         if (!beeActive)
         {
@@ -239,6 +264,8 @@ Draw the scene
     window.draw(spriteBee);
 // Draw the score
     window.draw(scoreText);
+// Draw the timebar
+    window.draw(timeBar);
     if (paused)
     {
 // Draw our message
