@@ -119,6 +119,11 @@ int main()
 // We can then spin it round without changing its position
         branches[i].setOrigin(110, 10);//half of the size of image
     }
+    updateBranches(1);
+    updateBranches(2);
+    updateBranches(3);
+    updateBranches(4);
+    updateBranches(5);
 while (window.isOpen())
     {
 /*
