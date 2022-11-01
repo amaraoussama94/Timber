@@ -60,6 +60,8 @@ int main()
     float cloud1Speed = 0.0f;
     float cloud2Speed = 0.0f;
     float cloud3Speed = 0.0f;
+// Variables to control time itself
+    Clock clock;
     while (window.isOpen())
     {
 /*
@@ -76,7 +78,31 @@ Handle the players input
 Update the scene
 ****************************************
 */
-
+// Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
+    Time dt = clock.restart();
+// Setup the bee
+    if (!beeActive)
+    {
+// How fast is the bee
+    srand((int)time(0));
+    beeSpeed = (rand() % 200) + 200;
+// How high is the bee
+    srand((int)time(0) * 10);
+    float height = (rand() % 370) + 384;
+    spriteBee.setPosition(1100, height);
+    beeActive = true;
+    }
+    else
+// Move the bee
+    {
+    spriteBee.setPosition(spriteBee.getPosition().x -(beeSpeed * dt.asSeconds()),spriteBee.getPosition().y);
+// Has the bee reached the left-hand edge of the screen?
+    if (spriteBee.getPosition().x < -100)
+        {
+// Set it up ready to be a whole new bee next frame
+        beeActive = false;
+        }
+    }
 /*
 ****************************************
 Draw the scene
@@ -86,11 +112,14 @@ Draw the scene
     window.clear();
 // Draw our game scene here
     window.draw(spriteBackground);
-    window.draw(spriteTree);
-    window.draw(spriteBee);
+// Draw the clouds
     window.draw(spriteCloud1);
-    window.draw(spriteCloud2); 
-    window.draw(spriteCloud3);  
+    window.draw(spriteCloud2);
+    window.draw(spriteCloud3);
+// Draw the tree
+    window.draw(spriteTree);
+// Draw the insect
+    window.draw(spriteBee);
 // Show everything we just drew
     window.display();
     }
