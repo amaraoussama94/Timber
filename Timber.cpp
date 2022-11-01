@@ -111,6 +111,73 @@ Update the scene
         beeActive = false;
         }
     }
+// Manage the clouds
+// Cloud 1
+    if (!cloud1Active)
+    {
+// How fast is the cloud
+    srand((int)time(0) * 10);
+    cloud1Speed = (rand() % 200);
+// How high is the cloud
+    srand((int)time(0) * 10);
+    float height = (rand() % 100);
+    spriteCloud1.setPosition(-200, height);
+    cloud1Active = true;
+    }
+    else
+    {
+    spriteCloud1.setPosition(spriteCloud1.getPosition().x +(cloud1Speed * dt.asSeconds()),spriteCloud1.getPosition().y);
+// Has the cloud reached the right hand edge of the screen?
+    if (spriteCloud1.getPosition().x > 1080)
+        {
+// Set it up ready to be a whole new cloud next frame
+        cloud1Active = false;
+        }
+    }
+    // Cloud 2
+    if (!cloud2Active)
+    {
+// How fast is the cloud
+    srand((int)time(0) * 20);
+    cloud2Speed = (rand() % 200);
+// How high is the cloud
+    srand((int)time(0) * 20);
+    float height = (rand() % 200) -50;
+    spriteCloud2.setPosition(-200, height);
+    cloud2Active = true;
+    }
+    else
+    {
+    spriteCloud2.setPosition(spriteCloud2.getPosition().x +(cloud2Speed * dt.asSeconds()),spriteCloud2.getPosition().y);
+// Has the cloud reached the right hand edge of the screen?
+    if (spriteCloud2.getPosition().x > 1080)
+        {
+// Set it up ready to be a whole new cloud next frame
+        cloud2Active = false;
+        }
+    }
+// Cloud 3
+    if (!cloud3Active)
+    {
+// How fast is the cloud
+    srand((int)time(0) * 30);
+    cloud3Speed = (rand() % 200);
+// How high is the cloud
+    srand((int)time(0) * 30);
+    float height = (rand() % 300) - 50;
+    spriteCloud3.setPosition(-200, height);
+    cloud3Active = true;
+    }
+    else
+    {
+    spriteCloud3.setPosition(spriteCloud3.getPosition().x +(cloud3Speed * dt.asSeconds()),spriteCloud3.getPosition().y);
+// Has the cloud reached the right hand edge of the screen?
+    if (spriteCloud3.getPosition().x > 1080)
+        {
+// Set it up ready to be a whole new cloud next frame
+        cloud3Active = false;
+        }
+}
 /*
 ****************************************
 Draw the scene
