@@ -449,8 +449,12 @@ Update the scene
             // death
             paused = true;
             acceptInput = false;
-            // Draw the gravestone
-            spriteRIP.setPosition(590, 590);
+            if(branchPositions[5] == side::LEFT)
+                // Draw the gravestone
+                spriteRIP.setPosition(280, 590);
+            if(branchPositions[5] == side::RIGHT)
+                // Draw the gravestone
+                spriteRIP.setPosition(590, 590);
             // hide the player
             spritePlayer.setPosition(2000, 660);
             // Change the text of the message
