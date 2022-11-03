@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="asset/logo.svg" height="150"> to change 
+    <img src="https://github.com/amaraoussama94/Timber/blob/main/Game.png" height="150"> to change 
 </p>
 <h1 align="center">Github Readme Activity Graph</h1>
 A dynamically generated activity graph to show your GitHub activities of last 31 days.
