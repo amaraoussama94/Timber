@@ -140,8 +140,8 @@ int main()
     spriteAxe.setTexture(textureAxe);
     spriteAxe.setPosition(525, 613);
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = 700;
-    const float AXE_POSITION_RIGHT = 1075;
+    const float AXE_POSITION_LEFT = 340;//*//
+    const float AXE_POSITION_RIGHT = 525;
 // Prepare the flying log
     Texture textureLog;
     textureLog.loadFromFile("graphics/log_2_150x70.png");
@@ -150,8 +150,8 @@ int main()
     spriteLog.setPosition(245, 550);
 // Some other useful log related variables
     bool logActive = false;
-    float logSpeedX = 1000;
-    float logSpeedY = -1500;
+    float logSpeedX = 10;/*************************Log*****************************************************////1000
+    float logSpeedY = -15;/*****************************************************************************///-1500
 // Control the player input
     bool acceptInput = false;
   /*  updateBranches(1);
@@ -178,7 +178,6 @@ Handle the players input
         }
     }
 //normale  mode  close  the  game using the  button
-    Event event;
     if (window.pollEvent(event)  ) 
         {
             if (event.type == sf::Event::Closed)
@@ -207,6 +206,7 @@ Handle the players input
 // Move the player into position
     spritePlayer.setPosition(590, 560);
     acceptInput = true;
+    }
 // Wrap the player controls to
 // Make sure we are accepting input
     if (acceptInput)
@@ -220,12 +220,13 @@ Handle the players input
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;
             spriteAxe.setPosition(AXE_POSITION_RIGHT,spriteAxe.getPosition().y);/*****************************************/
-            spritePlayer.setPosition(1200, 720);/*****position to update*/
+            spritePlayer.setPosition(590, 560);/*****position to update*/
+            //spritePlayer.setRotation(0);
 // Update the branches
             updateBranches(score);
 // Set the log flying to the left
-            spriteLog.setPosition(810, 720);/****************************************/
-            logSpeedX = -5000;
+            spriteLog.setPosition(245, 480);/****************************************/
+            logSpeedX = -3000;//5000
             logActive = true;
             acceptInput = false;
             }
@@ -237,17 +238,18 @@ Handle the players input
             score++;
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
-            spritePlayer.setPosition(580, 720);
+            spritePlayer.setPosition(280, 560);
+            //spritePlayer.setRotation(270);
 // update the branches
             updateBranches(score);
 // set the log flying
-            spriteLog.setPosition(810, 720);
-            logSpeedX = 5000;
+            spriteLog.setPosition(300, 480);
+            logSpeedX = 3000;//500
             logActive = true;
             acceptInput = false;
             }
         }
-    }
+    
    
 /*
 **************************************** 
@@ -397,9 +399,9 @@ Update the scene
             // Has the log reached the right hand edge?
             if (spriteLog.getPosition().x < -100 ||spriteLog.getPosition().x > 2000)
             {
-                // Set it up ready to be a whole new log next frame
+                // Set it up ready to be a whole new log next frame// log  that will be  moving  
                 logActive = false;
-                spriteLog.setPosition(810, 720);
+                spriteLog.setPosition(400, 550);
             }
         }
         }
