@@ -1,6 +1,6 @@
 
 Timber:Timber.o
-	g++ Timber.o -o Timber -lsfml-graphics -lsfml-window -lsfml-system
+	g++ Timber.o -o Timber -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
 Timber.o:Timber.cpp
