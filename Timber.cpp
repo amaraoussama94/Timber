@@ -1,6 +1,7 @@
 // Include important libraries here
 #include <SFML/Graphics.hpp>
-#include <sstream>
+#include <sstream>///for  string 
+#include <SFML/Audio.hpp>
 // Make code easier to type with "using namespace"
 using namespace sf;
 // Function declaration
@@ -48,7 +49,7 @@ int main()
 // make 3 cloud sprites from 1 texture
     Texture textureCloud;
 // Load 1 new texture
-    textureCloud.loadFromFile("graphics/cloud_50.png");
+    textureCloud.loadFromFile("graphics/cloud_50.png");    
 // 3 New sprites with the same texture
     Sprite spriteCloud1;
     Sprite spriteCloud2;
@@ -154,11 +155,6 @@ int main()
     float logSpeedY = -15;//-1500
 // Control the player input
     bool acceptInput = false;
-  /*  updateBranches(1);
-    updateBranches(2);
-    updateBranches(3);
-    updateBranches(4);
-    updateBranches(5);*///For testing
 while (window.isOpen())
     {
 /*
