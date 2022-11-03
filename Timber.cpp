@@ -44,7 +44,7 @@ int main()
     {   if(350>(200*i)> 550)
             continue;
         spriteBackTree[i].setTexture(textureTree);
-        spriteBackTree[i].setPosition(200*i,0.5*(i*20));
+        spriteBackTree[i].setPosition(200*i,-i*10);
   }
 // Prepare the bee
     Texture textureBee;
