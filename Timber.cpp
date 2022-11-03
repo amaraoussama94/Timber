@@ -187,7 +187,7 @@ while (window.isOpen())
 Handle the players input
 ****************************************
 */   
-    Event event;
+   Event event;
     while (window.pollEvent(event))
     {
         if (event.type == Event::KeyReleased && !paused)
@@ -197,14 +197,12 @@ Handle the players input
 // hide the axe
             spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
         }
-    }
 //normale  mode  close  the  game using the  button
-    Event event_close;
-    if (window.pollEvent(event_close)  ) 
-        {
-            if (event_close.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed)
                 window.close();
-        }
+    }
+
+
 // press escape  key to close the game 
     if  (Keyboard::isKeyPressed(Keyboard::Escape)) 
         {
