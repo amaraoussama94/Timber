@@ -86,28 +86,35 @@ int main()
     bool paused = true;
 // Draw some text
     int score = 0;
+    float Last_time=0.0f;
     Text messageText;
     Text scoreText;
+    Text FPSText;
 // We need to choose a font
     Font font;
     font.loadFromFile("fonts/KOMIKAP_.ttf");
 // Set the font to our message
     messageText.setFont(font);
     scoreText.setFont(font);
+    FPSText.setFont(font);
 // Assign the actual message
     messageText.setString("Press Enter to start!");
     scoreText.setString("Score = 0");
+    FPSText.setString("FPS = 0");
 // Make it really big
     messageText.setCharacterSize(75);
     scoreText.setCharacterSize(50);
+    FPSText.setCharacterSize(50);
 // Choose a color
     messageText.setFillColor(Color::White);
     scoreText.setFillColor(Color::White);
+    FPSText.setFillColor(Color::White);
 // Position the text
     FloatRect textRect = messageText.getLocalBounds();
     messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
     messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
     scoreText.setPosition(20, 20);
+    FPSText.setPosition(600, 20);
 // Prepare 6 branches
     Texture textureBranch;
     textureBranch.loadFromFile("graphics/branch_50.png");
@@ -123,7 +130,7 @@ int main()
 // Prepare the player
     Texture texturePlayer;
     texturePlayer.loadFromFile("graphics/player_50.png");
-    Sprite spritePlayer;
+    Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
     spritePlayer.setPosition(590, 560);
 // The player starts on the left
@@ -168,9 +175,10 @@ int main()
     death.setBuffer(deathBuffer);
 // Out of time
     SoundBuffer ootBuffer;
-    ootBuffer.loadFromFile("sound/out_of_time.wav");
+    ootBuffer.loadFromFile("sound/time_out.flac");//time_out.flac//out_of_time.wav
     Sound outOfTime;
     outOfTime.setBuffer(ootBuffer);
+// const for FPS  calculation 
 
 while (window.isOpen())
     {
@@ -273,7 +281,15 @@ Handle the players input
 **************************************** 
 Update the scene
 ****************************************
-*/
+*/  
+    // FPS calculation 
+    float  current_time= clock.restart().asSeconds() ;
+    float FPS= 1.f / current_time-Last_time ;
+    Last_time=current_time;
+    // Update the score text
+    std::stringstream sFPS;
+    sFPS<< "FPS = " << FPS;
+    FPSText.setString(sFPS.str());
     if (!paused)
     {
 // Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
@@ -485,6 +501,8 @@ Draw the scene
     window.draw(scoreText);
 // Draw the timebar
     window.draw(timeBar);
+// Draw the FPS
+    window.draw(FPSText);
     if (paused)
     {
 // Draw our message
