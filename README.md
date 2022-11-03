@@ -1,8 +1,6 @@
 <p align="center">
     <img src="https://github.com/amaraoussama94/Timber/blob/main/Game.png" height="150"> to change 
 </p>
-<h1 align="center">Github Readme Activity Graph</h1>
-A dynamically generated activity graph to show your GitHub activities of last 31 days.
 ## Table of contents
 - [Table of contents](#table-of-contents)
 - [How to Use](#how-to-use)
@@ -11,10 +9,12 @@ A dynamically generated activity graph to show your GitHub activities of last 31
 ##How to Use:(#how-to-use)
 press  escape to exit the game 
 install sfml :sudo apt-get install libsfml-dev
-install make :
-              make
+install make : sudo apt-get install  make
+               make
 ##Generale info:(#how-to-use)
-
+escape to close  game
+Enter to start game
+L+R key to control player
 *Game name: Planning Timber
 *version :0.1
 
