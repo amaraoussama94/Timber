@@ -113,13 +113,13 @@ int main()
 // Set the texture for each branch sprite
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
-        branches[i].setTexture(textureBranch);/***************************************************************************/
-        branches[i].setPosition(-1000, -1000);/****************************************************************************/
+        branches[i].setTexture(textureBranch);
+        branches[i].setPosition(-1000, -1000);
 // Set the sprite's origin to dead centre
 // We can then spin it round without changing its position
         branches[i].setOrigin(110, 10);//half of the size of image
     }
-// Prepare the player/************************************************************************************/
+// Prepare the player
     Texture texturePlayer;
     texturePlayer.loadFromFile("graphics/player_50.png");
     Sprite spritePlayer;
@@ -140,7 +140,7 @@ int main()
     spriteAxe.setTexture(textureAxe);
     spriteAxe.setPosition(525, 613);
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = 340;//*//
+    const float AXE_POSITION_LEFT = 340;
     const float AXE_POSITION_RIGHT = 525;
 // Prepare the flying log
     Texture textureLog;
@@ -150,8 +150,8 @@ int main()
     spriteLog.setPosition(245, 550);
 // Some other useful log related variables
     bool logActive = false;
-    float logSpeedX = 10;/*************************Log*****************************************************////1000
-    float logSpeedY = -15;/*****************************************************************************///-1500
+    float logSpeedX = 10;//1000
+    float logSpeedY = -15;//-1500
 // Control the player input
     bool acceptInput = false;
   /*  updateBranches(1);
@@ -174,13 +174,14 @@ Handle the players input
 // Listen for key presses again
             acceptInput = true;
 // hide the axe
-            spriteAxe.setPosition(2000,spriteAxe.getPosition().y);/*********************************/
+            spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
         }
     }
 //normale  mode  close  the  game using the  button
-    if (window.pollEvent(event)  ) 
+    Event event_close;
+    if (window.pollEvent(event_close)  ) 
         {
-            if (event.type == sf::Event::Closed)
+            if (event_close.type == sf::Event::Closed)
                 window.close();
         }
 // press escape  key to close the game 
@@ -201,7 +202,7 @@ Handle the players input
         {
         branchPositions[i] = side::NONE;
         }
-// Make sure the gravestone is hidden/***************************************************************/
+// Make sure the gravestone is hidden
     spriteRIP.setPosition(675, 2000);
 // Move the player into position
     spritePlayer.setPosition(590, 560);
@@ -219,13 +220,13 @@ Handle the players input
             score ++;
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;
-            spriteAxe.setPosition(AXE_POSITION_RIGHT,spriteAxe.getPosition().y);/*****************************************/
+            spriteAxe.setPosition(AXE_POSITION_RIGHT,spriteAxe.getPosition().y);
             spritePlayer.setPosition(590, 560);/*****position to update*/
             //spritePlayer.setRotation(0);
 // Update the branches
             updateBranches(score);
 // Set the log flying to the left
-            spriteLog.setPosition(245, 480);/****************************************/
+            spriteLog.setPosition(245, 480);
             logSpeedX = -3000;//5000
             logActive = true;
             acceptInput = false;
@@ -373,6 +374,9 @@ Update the scene
     for (int i = 0; i < NUM_BRANCHES; i++)
         {
         float height = i * 150;
+        // if  we  reach end off tree don't move  the  branch make it  desspare
+        if (height>650)
+            continue;
         if (branchPositions[i] == side::LEFT)
             {
             // Move the sprite to the left side
@@ -382,8 +386,8 @@ Update the scene
             }
         else if (branchPositions[i] == side::RIGHT)
             {
-            // Move the sprite to the right side*/****************************************************************/
-            branches[i].setPosition(650, height);/************************************/
+            // Move the sprite to the right side*
+            branches[i].setPosition(650, height);
             // Set the sprite rotation to normal
             branches[i].setRotation(0);
             }
@@ -404,7 +408,24 @@ Update the scene
                 spriteLog.setPosition(400, 550);
             }
         }
-        }
+        // has the player been squished by a branch?
+        if (branchPositions[5] == playerSide)
+        {
+            // death
+            paused = true;
+            acceptInput = false;
+            // Draw the gravestone
+            spriteRIP.setPosition(590, 590);
+            // hide the player
+            spritePlayer.setPosition(2000, 660);
+            // Change the text of the message
+            messageText.setString("SQUISHED!!");
+            // Center it on the screen
+            FloatRect textRect = messageText.getLocalBounds();
+            messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top + textRect.height / 2.0f);
+            messageText.setPosition(1080 / 2.0f,768 / 2.0f);
+            }
+       } 
     } // End if(!paused)
 
 
