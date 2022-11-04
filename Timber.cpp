@@ -40,7 +40,7 @@ int main()
      Texture textureBackTree;
     textureBackTree.loadFromFile("graphics/back_tree_1_90x700.png");
     Sprite spriteBackTree[NUM_TREE];
-    for(int i =0 ; i<NUM_TREE; i++)
+    for(int i =1 ; i<NUM_TREE; i++)
     {   if(350>(200*i)> 550)
             continue;
         spriteBackTree[i].setTexture(textureBackTree);
@@ -306,7 +306,16 @@ Update the scene
 // Subtract from the amount of time remaining
     timeRemaining -= dt.asSeconds();
 // size up the time bar
+ 
     timeBar.setSize(Vector2f(timeBarWidthPerSecond *timeRemaining, timeBarHeight));
+    //FPS  calculation
+    float FPS= 1.f /dt.asSeconds() ;
+    // create  string  object 
+    std::stringstream sFPS;
+    //create  the  string  with actual result  to print it n the  screen
+    sFPS<< "FPS = " << FPS;
+    // update the  screen with the new  FPS
+    FPSText.setString(sFPS.str());
     if (timeRemaining<= 0.0f) 
     {
 // Pause the game
