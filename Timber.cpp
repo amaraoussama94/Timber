@@ -43,7 +43,7 @@ int main()
     for(int i =0 ; i<NUM_TREE; i++)
     {   if(350>(200*i)> 550)
             continue;
-        spriteBackTree[i].setTexture(textureTree);
+        spriteBackTree[i].setTexture(textureBackTree);
         spriteBackTree[i].setPosition(200*i,-i*10);
   }
 // Prepare the bee
