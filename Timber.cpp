@@ -7,6 +7,7 @@ using namespace sf;
 // Function declaration
 void updateBranches(int seed);
 const int NUM_BRANCHES = 6;
+const int NUM_TREE = 6;
 Sprite branches[NUM_BRANCHES];
 // Where is the player/branch?
 // Left or Right
@@ -31,11 +32,20 @@ int main()
     spriteBackground.setPosition(0,0);
 // Make a tree sprite
     Texture textureTree;
-    textureTree.loadFromFile("graphics/tree_1_150x650.png");
-    Sprite spriteTree;
-    spriteTree.setTexture(textureTree);
+    textureTree.loadFromFile("graphics/tree_1_150x700.png");
+    Sprite spriteTree ;
+    spriteTree.setTexture(textureTree); 
     spriteTree.setPosition(400,0);
-
+    //Background Tree
+     Texture textureBackTree;
+    textureBackTree.loadFromFile("graphics/back_tree_1_90x700.png");
+    Sprite spriteBackTree[NUM_TREE];
+    for(int i =0 ; i<NUM_TREE; i++)
+    {   if(350>(200*i)> 550)
+            continue;
+        spriteBackTree[i].setTexture(textureTree);
+        spriteBackTree[i].setPosition(200*i,-i*10);
+  }
 // Prepare the bee
     Texture textureBee;
     textureBee.loadFromFile("graphics/bee_50.png");
@@ -158,8 +168,8 @@ int main()
     spriteLog.setPosition(245, 550);
 // Some other useful log related variables
     bool logActive = false;
-    float logSpeedX = 10;//1000
-    float logSpeedY = -15;//-1500
+    float logSpeedX = 1000;//1000
+    float logSpeedY = -1500;//-1500
 // Control the player input
     bool acceptInput = false;
 // Prepare the sounds
@@ -246,7 +256,7 @@ Handle the players input
             updateBranches(score);
 // Set the log flying to the left
             spriteLog.setPosition(245, 480);
-            logSpeedX = -3000;//5000
+            logSpeedX = -5000;//-5000
             logActive = true;
             acceptInput = false;
 // Play a chop sound
@@ -266,7 +276,7 @@ Handle the players input
             updateBranches(score);
 // set the log flying
             spriteLog.setPosition(300, 480);
-            logSpeedX = 3000;//500
+            logSpeedX = 5000;//5000
             logActive = true;
             acceptInput = false;
 // Play a chop sound
@@ -279,15 +289,16 @@ Handle the players input
 **************************************** 
 Update the scene
 ****************************************
-*/  
-    // FPS calculation 
-    float  current_time= clock.restart().asSeconds() ;
-    float FPS= 1.f / current_time-Last_time ;
+*/
+
+   // FPS calculation 
+   /*float  current_time= clock.restart().asSeconds() ;
+    float FPS= 1.f /abs( current_time-Last_time) ;
     Last_time=current_time;
     // Update the score text
     std::stringstream sFPS;
     sFPS<< "FPS = " << FPS;
-    FPSText.setString(sFPS.str());
+    FPSText.setString(sFPS.str());*/ 
     if (!paused)
     {
 // Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
@@ -481,6 +492,10 @@ Draw the scene
     window.draw(spriteCloud1);
     window.draw(spriteCloud2);
     window.draw(spriteCloud3);
+    for(int i =1;i<NUM_TREE;i++)
+    {
+        window.draw(spriteBackTree[i]);
+    }
 // Draw the branches
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
