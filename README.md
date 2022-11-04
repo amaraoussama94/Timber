@@ -7,10 +7,11 @@
   - [Attention ⚠](#attention-)
   -[The features and objects of a game]
 <h3 align="left">How to Use:(#how-to-use)</h3>    
-press  escape to exit the game 
 install sfml :sudo apt-get install libsfml-dev
 install make : sudo apt-get install  make
+               cd Timber
                make
+               ./Timber
 <h3 align="left">Generale info:(#how-to-use)</h3>    
 escape to close  game
 Enter to start game
