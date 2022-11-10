@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/amaraoussama94/Timber/blob/main/Game.png" height="150"> to change 
+    <img src="https://github.com/amaraoussama94/Timber/blob/main/Game.png" height="150"> 
 </p>
 <h3 align="left"> Table of contents</h3>   
 - Table of contents</br>
