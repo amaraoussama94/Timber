@@ -40,12 +40,12 @@ int main()
      Texture textureBackTree;
     textureBackTree.loadFromFile("graphics/back_tree_1_90x700.png");
     Sprite spriteBackTree[NUM_TREE];
-    for(int i =0 ; i<NUM_TREE; i++)
+    for(int i =1 ; i<NUM_TREE; i++)
     {   if(350>(200*i)> 550)
             continue;
-        spriteBackTree[i].setTexture(textureTree);
+        spriteBackTree[i].setTexture(textureBackTree);
         spriteBackTree[i].setPosition(200*i,-i*10);
-  }
+    }
 // Prepare the bee
     Texture textureBee;
     textureBee.loadFromFile("graphics/bee_50.png");
@@ -189,7 +189,7 @@ int main()
     Sound outOfTime;
     outOfTime.setBuffer(ootBuffer);
 // const for FPS  calculation 
-
+    int passetime =0;
 while (window.isOpen())
     {
 /*
@@ -291,22 +291,28 @@ Update the scene
 ****************************************
 */
 
-   // FPS calculation 
-   /*float  current_time= clock.restart().asSeconds() ;
-    float FPS= 1.f /abs( current_time-Last_time) ;
-    Last_time=current_time;
-    // Update the score text
-    std::stringstream sFPS;
-    sFPS<< "FPS = " << FPS;
-    FPSText.setString(sFPS.str());*/ 
     if (!paused)
     {
 // Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
         Time dt = clock.restart();
 // Subtract from the amount of time remaining
-    timeRemaining -= dt.asSeconds();
+    timeRemaining -= dt.asSeconds();/******************************************************************************************/
 // size up the time bar
+    
     timeBar.setSize(Vector2f(timeBarWidthPerSecond *timeRemaining, timeBarHeight));
+    //FPS  calculation
+     passetime += dt.asMilliseconds();
+    if(passetime > 80) //to make FPS  visibale for reader mae it 100<x<1000
+    {
+        float FPS= 1.0f /dt.asSeconds() ;
+        // create  string  object 
+        std::stringstream sFPS;
+        //create  the  string  with actual result  to print it n the  screen
+        sFPS<< "FPS = " << FPS;
+        // update the  screen with the new  FPS
+        FPSText.setString(sFPS.str());
+       passetime =0;
+    }
     if (timeRemaining<= 0.0f) 
     {
 // Pause the game
