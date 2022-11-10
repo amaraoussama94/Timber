@@ -296,7 +296,7 @@ Update the scene
 // Measure time:returns the amount of time that has elapsed since the last time we restarted the clock
         Time dt = clock.restart();
 // Subtract from the amount of time remaining
-    timeRemaining -= dt.asSeconds();/******************************************************************************************/
+    timeRemaining -= dt.asSeconds(); 
 // size up the time bar
     
     timeBar.setSize(Vector2f(timeBarWidthPerSecond *timeRemaining, timeBarHeight));
@@ -389,7 +389,7 @@ Update the scene
         spriteCloud2.setPosition(spriteCloud2.getPosition().x +(cloud2Speed * dt.asSeconds()),spriteCloud2.getPosition().y);
 // Has the cloud reached the right hand edge of the screen?
         if (spriteCloud2.getPosition().x > 1080)
-            {
+            { 
 // Set it up ready to be a whole new cloud next frame
             cloud2Active = false;
             }
@@ -465,11 +465,19 @@ Update the scene
             paused = true;
             acceptInput = false;
             if(branchPositions[5] == side::LEFT)
+            {
                 // Draw the gravestone
                 spriteRIP.setPosition(280, 590);
+                spriteLog.setPosition(2000, 550);//make them disapare from thr screen
+                spriteAxe.setPosition(2000,550);
+            } 
             if(branchPositions[5] == side::RIGHT)
+            {
                 // Draw the gravestone
                 spriteRIP.setPosition(590, 590);
+                spriteLog.setPosition(2000, 550);
+                spriteAxe.setPosition(2000,550);
+            }
             // hide the player
             spritePlayer.setPosition(2000, 660);
             // Change the text of the message
