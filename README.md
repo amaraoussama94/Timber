@@ -18,7 +18,7 @@ Enter to start game</br>
 L+R key to control player</br>
 
 *Game name: Planning Timber</br>
-*version :0.1</br>
+*version :1.0</br>
 
 <h3 align="left">HThe features and objects of a game </h3>  :  
                                     •Time is always running out.</br>
