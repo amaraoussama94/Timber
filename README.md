@@ -18,7 +18,7 @@ Enter to start game</br>
 L+R key to control player</br>
 
 *Game name: Planning Timber</br>
-*version :1.0</br>
+*version :1.2</br>
 
 <h3 align="left">HThe features and objects of a game </h3>  :  
                                     •Time is always running out.</br>
@@ -29,3 +29,4 @@ L+R key to control player</br>
 
 useful link :
 to resize image : https://www.simpleimageresizer.com/upload
+PS : The rushed  game is  a fixed size  screen resolution, but the actual code  that we  work with use  functions to get the  actual screen of your pc resolution so maybe you get into a mess with  the position of  the object</br>
