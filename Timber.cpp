@@ -47,16 +47,16 @@ int main()
     Sprite spriteTree ;
     spriteTree.setTexture(textureTree); 
     spriteTree.setPosition((resolution.x /2.0)-180,0);//(400,0) guess what yes also for my pc 
-    /*//Background Tree
-     Texture textureBackTree;/*************************************************************************************************************
+    //Background Tree
+     Texture textureBackTree;/*************************************************************************************************************/
     textureBackTree.loadFromFile("graphics/tree2.png");//back_tree_1_90x700 also this
     Sprite spriteBackTree[NUM_TREE];
     for(int i =1 ; i<NUM_TREE; i++)
-    {   if(350>(200*i)> 550)
+    {   if((((resolution.x /2.0)-500)>(300*i)) && ((300*i)>((resolution.x /2.0)+500)))
             continue;
         spriteBackTree[i].setTexture(textureBackTree);
-        spriteBackTree[i].setPosition(500*i,-i*10);
-    }*/
+        spriteBackTree[i].setPosition(500*i,0);
+    }
 // Prepare the bee
     Texture textureBee;
     textureBee.loadFromFile("graphics/bee.png");//_50
@@ -169,7 +169,7 @@ int main()
     spriteAxe.setTexture(textureAxe);
     spriteAxe.setPosition((resolution.x /2.0)+70, resolution.y-260);//(525, 613)
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = (resolution.x /2.0)-270;/******************************************************************/
+    const float AXE_POSITION_LEFT = (resolution.x /2.0)-270; 
     const float AXE_POSITION_RIGHT = (resolution.x /2.0)+70;
 // Prepare the flying log
     Texture textureLog;
@@ -518,10 +518,10 @@ Draw the scene
     window.draw(spriteCloud1);
     window.draw(spriteCloud2);
     window.draw(spriteCloud3);
-   /*for(int i =1;i<NUM_TREE;i++)
+    for(int i =1;i<NUM_TREE;i++)
     {
-        window.draw(spriteBackTree[i]);/*************************************************************************************************************
-    }*/ 
+        window.draw(spriteBackTree[i]);/*************************************************************************************************************/
+    } 
 // Draw the branches
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
