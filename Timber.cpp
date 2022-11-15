@@ -169,7 +169,7 @@ int main()
     spriteAxe.setTexture(textureAxe);
     spriteAxe.setPosition((resolution.x /2.0)+70, resolution.y-260);//(525, 613)
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = 340;/******************************************************************/
+    const float AXE_POSITION_LEFT = (resolution.x /2.0)-270;/******************************************************************/
     const float AXE_POSITION_RIGHT = (resolution.x /2.0)+70;
 // Prepare the flying log
     Texture textureLog;
