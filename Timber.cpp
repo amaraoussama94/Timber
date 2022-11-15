@@ -42,13 +42,13 @@ int main()
 // Set the spriteBackground to cover the screen
     spriteBackground.setPosition(0,0);
 // Make a tree sprite
-    Texture textureTree;
+   Texture textureTree;
     textureTree.loadFromFile("graphics/tree.png");//_1_150x700 also foor my pc dude stop reading
     Sprite spriteTree ;
     spriteTree.setTexture(textureTree); 
     spriteTree.setPosition(resolution.x /2.0,0);//(400,0) guess what yes also for my pc 
-    //Background Tree
-     Texture textureBackTree;
+    /*//Background Tree
+     Texture textureBackTree;/*************************************************************************************************************
     textureBackTree.loadFromFile("graphics/tree2.png");//back_tree_1_90x700 also this
     Sprite spriteBackTree[NUM_TREE];
     for(int i =1 ; i<NUM_TREE; i++)
@@ -56,7 +56,7 @@ int main()
             continue;
         spriteBackTree[i].setTexture(textureBackTree);
         spriteBackTree[i].setPosition(500*i,-i*10);
-    }
+    }*/
 // Prepare the bee
     Texture textureBee;
     textureBee.loadFromFile("graphics/bee.png");//_50
@@ -153,7 +153,7 @@ int main()
     texturePlayer.loadFromFile("graphics/player.png");//_50
     Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
-    spritePlayer.setPosition(590, 560);
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-100 );
 // The player starts on the left
     side playerSide = side::LEFT;
 // Prepare the gravestone
@@ -517,10 +517,10 @@ Draw the scene
     window.draw(spriteCloud1);
     window.draw(spriteCloud2);
     window.draw(spriteCloud3);
-    for(int i =1;i<NUM_TREE;i++)
+   /*for(int i =1;i<NUM_TREE;i++)
     {
-        window.draw(spriteBackTree[i]);
-    }
+        window.draw(spriteBackTree[i]);/*************************************************************************************************************
+    }*/ 
 // Draw the branches
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
