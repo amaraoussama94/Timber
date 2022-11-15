@@ -16,10 +16,21 @@ side branchPositions[NUM_BRANCHES];
 // This is where our game starts from
 int main()
 {
-// Create a video mode object
-    VideoMode vm(1024,768);//resolution // 1366x 768//1280x720//1024x768//800x600
+
+    // Get the screen resolution and create an SFML window and View
+	
+    // Create a video mode object
+   // VideoMode vm(1024,768);//resolution // 1366x 768//1280x720//1024x768//800x600
+   // Create and open a window for the game
+   // RenderWindow window(vm,"Timber!!!");//, Style::Fullscreen) for  full screen
+    Vector2f resolution;
+	resolution.x = VideoMode::getDesktopMode().width;
+	resolution.y = VideoMode::getDesktopMode().height;
 // Create and open a window for the game
-    RenderWindow window(vm,"Timber!!!");//, Style::Fullscreen) for  full screen
+// A regular RenderWindow
+	RenderWindow window;
+    window.create(VideoMode(resolution.x, resolution.y),"Timber!!!");//,Style::Fullscreen
+   
 // Create a texture to hold a graphic on the GPU
     Texture textureBackground;
 // Load a graphic into the texture
