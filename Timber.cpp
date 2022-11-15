@@ -497,7 +497,7 @@ Update the scene
             // Center it on the screen
             FloatRect textRect = messageText.getLocalBounds();
             messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top + textRect.height / 2.0f);
-            messageText.setPosition(1080 / 2.0f,768 / 2.0f);
+            messageText.setPosition(resolution.x /2.0f,resolution.y/2.0f);// (1080 / 2.0f,768 / 2.0f)
             // Play the death sound
             death.play();
             }
