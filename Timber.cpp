@@ -153,7 +153,7 @@ int main()
     texturePlayer.loadFromFile("graphics/player.png");//_50
     Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
-    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);// (590, 590)
 // The player starts on the left
     side playerSide = side::LEFT;
 // Prepare the gravestone
@@ -245,7 +245,7 @@ Handle the players input
 // Make sure the gravestone is hidden
     spriteRIP.setPosition(675, 2000);
 // Move the player into position
-    spritePlayer.setPosition(590, 560);
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);// 590, 560
     acceptInput = true;
     }
 // Wrap the player controls to
@@ -261,7 +261,7 @@ Handle the players input
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;
             spriteAxe.setPosition(AXE_POSITION_RIGHT,spriteAxe.getPosition().y);
-            spritePlayer.setPosition(590, 560);/*****position to update*/
+            spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);/*****position to update*/// 590, 560
             //spritePlayer.setRotation(0);
 // Update the branches
             updateBranches(score);
@@ -281,7 +281,7 @@ Handle the players input
             score++;
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
-            spritePlayer.setPosition(280, 560);
+            spritePlayer.setPosition((resolution.x /2.0)-400 , resolution.y-370);//(280, 560
             //spritePlayer.setRotation(270);
 // update the branches
             updateBranches(score);
