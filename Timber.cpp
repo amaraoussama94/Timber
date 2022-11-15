@@ -46,7 +46,7 @@ int main()
     textureTree.loadFromFile("graphics/tree.png");//_1_150x700 also foor my pc dude stop reading
     Sprite spriteTree ;
     spriteTree.setTexture(textureTree); 
-    spriteTree.setPosition(resolution.x /2.0,0);//(400,0) guess what yes also for my pc 
+    spriteTree.setPosition((resolution.x /2.0)-180,0);//(400,0) guess what yes also for my pc 
     /*//Background Tree
      Texture textureBackTree;/*************************************************************************************************************
     textureBackTree.loadFromFile("graphics/tree2.png");//back_tree_1_90x700 also this
@@ -99,7 +99,7 @@ int main()
     float timeBarHeight =40;
     timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
     timeBar.setFillColor(Color::Red);
-    timeBar.setPosition((resolution.x  / 2) - timeBarStartWidth / 2, resolution.y-200);
+    timeBar.setPosition((resolution.x  / 2) - timeBarStartWidth / 2, resolution.y- 150);
     Time gameTimeTotal;
     float timeRemaining = 6.0f;
     float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
@@ -135,10 +135,10 @@ int main()
     messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
     messageText.setPosition(resolution.x  / 2.0f, resolution.y  / 2.0f);
     scoreText.setPosition(20, 20);
-    FPSText.setPosition(resolution.x -200, 20);
+    FPSText.setPosition(resolution.x -290, 20);
 // Prepare 6 branches
     Texture textureBranch;
-    textureBranch.loadFromFile("graphics/branch_50.png");
+    textureBranch.loadFromFile("graphics/branch.png");//_50
 // Set the texture for each branch sprite
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
@@ -146,37 +146,37 @@ int main()
         branches[i].setPosition(-1000, -1000);
 // Set the sprite's origin to dead centre
 // We can then spin it round without changing its position
-        branches[i].setOrigin(110, 10);//half of the size of image
+        branches[i].setOrigin(220, 40);//half of the size of image(110.10)
     }
 // Prepare the player
     Texture texturePlayer;
     texturePlayer.loadFromFile("graphics/player.png");//_50
     Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
-    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-100 );
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);
 // The player starts on the left
     side playerSide = side::LEFT;
 // Prepare the gravestone
     Texture textureRIP;
-    textureRIP.loadFromFile("graphics/rip_50.png");
+    textureRIP.loadFromFile("graphics/rip.png");
     Sprite spriteRIP;
     spriteRIP.setTexture(textureRIP);
-    spriteRIP.setPosition(590, 590);
+    spriteRIP.setPosition((resolution.x /2.0)+200 , resolution.y-320) ;// (590, 590)
 // Prepare the axe
     Texture textureAxe;
-    textureAxe.loadFromFile("graphics/axe_50.png");
+    textureAxe.loadFromFile("graphics/axe.png");
     Sprite spriteAxe;
     spriteAxe.setTexture(textureAxe);
-    spriteAxe.setPosition(525, 613);
+    spriteAxe.setPosition((resolution.x /2.0)+70, resolution.y-260);//(525, 613)
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = 340;
-    const float AXE_POSITION_RIGHT = 525;
+    const float AXE_POSITION_LEFT = 340;/******************************************************************/
+    const float AXE_POSITION_RIGHT = (resolution.x /2.0)+70;
 // Prepare the flying log
     Texture textureLog;
-    textureLog.loadFromFile("graphics/log_2_150x70.png");
+    textureLog.loadFromFile("graphics/log.png");//_2_150x70 for my pc also yap
     Sprite spriteLog;
     spriteLog.setTexture(textureLog);
-    spriteLog.setPosition(245, 550);
+    spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//   (245, 550)
 // Some other useful log related variables
     bool logActive = false;
     float logSpeedX = 1000;//1000
