@@ -479,14 +479,14 @@ Update the scene
             if(branchPositions[5] == side::LEFT)
             {
                 // Draw the gravestone
-                spriteRIP.setPosition(280, 590);
+                spriteRIP.setPosition((resolution.x /2.0)-400 , resolution.y-320) ;//(280, 590)
                 spriteLog.setPosition(2000, 550);//make them disapare from thr screen
                 spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
             } 
             if(branchPositions[5] == side::RIGHT)
             {
                 // Draw the gravestone
-                spriteRIP.setPosition(590, 590);
+                spriteRIP.setPosition((resolution.x /2.0)+200 , resolution.y-320);//(590, 590)
                 spriteLog.setPosition(2000, 550);
                 spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
             }
