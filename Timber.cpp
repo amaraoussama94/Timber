@@ -442,14 +442,14 @@ Update the scene
         if (branchPositions[i] == side::LEFT)
             {
             // Move the sprite to the left side
-            branches[i].setPosition(290, height);
+            branches[i].setPosition((resolution.x /2.0)-380, height);// 290
             // Flip the sprite round the other way
             branches[i].setRotation(190);
             }
         else if (branchPositions[i] == side::RIGHT)
             {
             // Move the sprite to the right side*
-            branches[i].setPosition(650, height);
+            branches[i].setPosition((resolution.x /2.0)+320 , height);//650
             // Set the sprite rotation to normal
             branches[i].setRotation(0);
             }
