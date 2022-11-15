@@ -266,7 +266,7 @@ Handle the players input
 // Update the branches
             updateBranches(score);
 // Set the log flying to the left
-            spriteLog.setPosition(245, 480);
+            spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//(245, 480)
             logSpeedX = -5000;//-5000
             logActive = true;
             acceptInput = false;
@@ -280,13 +280,14 @@ Handle the players input
             playerSide = side::LEFT;
             score++;
 // Add to the amount of time remaining
-            timeRemaining += (2 / score) + .15;spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
+            timeRemaining += (2 / score) + .15;
+            spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
             spritePlayer.setPosition((resolution.x /2.0)-400 , resolution.y-370);//(280, 560
             //spritePlayer.setRotation(270);
 // update the branches
             updateBranches(score);
 // set the log flying
-            spriteLog.setPosition(300, 480);
+            spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//(300, 480)
             logSpeedX = 5000;//5000
             logActive = true;
             acceptInput = false;
@@ -466,7 +467,7 @@ Update the scene
             {
                 // Set it up ready to be a whole new log next frame// log  that will be  moving  
                 logActive = false;
-                spriteLog.setPosition(400, 550);
+                spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );
             }
         }
         // has the player been squished by a branch?
