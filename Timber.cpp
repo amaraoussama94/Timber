@@ -34,7 +34,7 @@ int main()
 // Create a texture to hold a graphic on the GPU
     Texture textureBackground;
 // Load a graphic into the texture
-    textureBackground.loadFromFile("graphics/background_1_1024x768.png");
+    textureBackground.loadFromFile("graphics/background.png");//_1_1024x768 this  wase for my pc  resolution
 // Create a sprite
     Sprite spriteBackground;
 // Attach the texture to the sprite
@@ -43,26 +43,26 @@ int main()
     spriteBackground.setPosition(0,0);
 // Make a tree sprite
     Texture textureTree;
-    textureTree.loadFromFile("graphics/tree_1_150x700.png");
+    textureTree.loadFromFile("graphics/tree.png");//_1_150x700 also foor my pc dude stop reading
     Sprite spriteTree ;
     spriteTree.setTexture(textureTree); 
-    spriteTree.setPosition(400,0);
+    spriteTree.setPosition(resolution.x /2.0,0);//(400,0) guess what yes also for my pc 
     //Background Tree
      Texture textureBackTree;
-    textureBackTree.loadFromFile("graphics/back_tree_1_90x700.png");
+    textureBackTree.loadFromFile("graphics/tree2.png");//back_tree_1_90x700 also this
     Sprite spriteBackTree[NUM_TREE];
     for(int i =1 ; i<NUM_TREE; i++)
     {   if(350>(200*i)> 550)
             continue;
         spriteBackTree[i].setTexture(textureBackTree);
-        spriteBackTree[i].setPosition(200*i,-i*10);
+        spriteBackTree[i].setPosition(500*i,-i*10);
     }
 // Prepare the bee
     Texture textureBee;
-    textureBee.loadFromFile("graphics/bee_50.png");
+    textureBee.loadFromFile("graphics/bee.png");//_50
     Sprite spriteBee;
     spriteBee.setTexture(textureBee);
-    spriteBee.setPosition(0,475);
+    spriteBee.setPosition(0,(resolution.y/2.0)+300);
 // Is the bee currently moving?
     bool beeActive = false;
 // How fast can the bee fly
@@ -70,7 +70,7 @@ int main()
 // make 3 cloud sprites from 1 texture
     Texture textureCloud;
 // Load 1 new texture
-    textureCloud.loadFromFile("graphics/cloud_50.png");    
+    textureCloud.loadFromFile("graphics/cloud.png"); //_50   
 // 3 New sprites with the same texture
     Sprite spriteCloud1;
     Sprite spriteCloud2;
@@ -99,7 +99,7 @@ int main()
     float timeBarHeight =40;
     timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
     timeBar.setFillColor(Color::Red);
-    timeBar.setPosition((1080 / 2) - timeBarStartWidth / 2, 700);
+    timeBar.setPosition((resolution.x  / 2) - timeBarStartWidth / 2, resolution.y-200);
     Time gameTimeTotal;
     float timeRemaining = 6.0f;
     float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
@@ -133,9 +133,9 @@ int main()
 // Position the text
     FloatRect textRect = messageText.getLocalBounds();
     messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
-    messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
+    messageText.setPosition(resolution.x  / 2.0f, resolution.y  / 2.0f);
     scoreText.setPosition(20, 20);
-    FPSText.setPosition(600, 20);
+    FPSText.setPosition(resolution.x -200, 20);
 // Prepare 6 branches
     Texture textureBranch;
     textureBranch.loadFromFile("graphics/branch_50.png");
@@ -150,7 +150,7 @@ int main()
     }
 // Prepare the player
     Texture texturePlayer;
-    texturePlayer.loadFromFile("graphics/player_50.png");
+    texturePlayer.loadFromFile("graphics/player.png");//_50
     Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
     spritePlayer.setPosition(590, 560);
