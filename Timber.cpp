@@ -16,14 +16,25 @@ side branchPositions[NUM_BRANCHES];
 // This is where our game starts from
 int main()
 {
-// Create a video mode object
-    VideoMode vm(1024,768);//resolution // 1366x 768//1280x720//1024x768//800x600
+
+    // Get the screen resolution and create an SFML window and View
+	
+    // Create a video mode object
+   // VideoMode vm(1024,768);//resolution // 1366x 768//1280x720//1024x768//800x600
+   // Create and open a window for the game
+   // RenderWindow window(vm,"Timber!!!");//, Style::Fullscreen) for  full screen
+    Vector2f resolution;
+	resolution.x = VideoMode::getDesktopMode().width;
+	resolution.y = VideoMode::getDesktopMode().height;
 // Create and open a window for the game
-    RenderWindow window(vm,"Timber!!!");//, Style::Fullscreen) for  full screen
+// A regular RenderWindow
+	RenderWindow window;
+    window.create(VideoMode(resolution.x, resolution.y),"Timber!!!");//,Style::Fullscreen
+   
 // Create a texture to hold a graphic on the GPU
     Texture textureBackground;
 // Load a graphic into the texture
-    textureBackground.loadFromFile("graphics/background_1_1024x768.png");
+    textureBackground.loadFromFile("graphics/background.png");//_1_1024x768 this  wase for my pc  resolution
 // Create a sprite
     Sprite spriteBackground;
 // Attach the texture to the sprite
@@ -31,27 +42,27 @@ int main()
 // Set the spriteBackground to cover the screen
     spriteBackground.setPosition(0,0);
 // Make a tree sprite
-    Texture textureTree;
-    textureTree.loadFromFile("graphics/tree_1_150x700.png");
+   Texture textureTree;
+    textureTree.loadFromFile("graphics/tree.png");//_1_150x700 also foor my pc dude stop reading
     Sprite spriteTree ;
     spriteTree.setTexture(textureTree); 
-    spriteTree.setPosition(400,0);
-    //Background Tree
-     Texture textureBackTree;
-    textureBackTree.loadFromFile("graphics/back_tree_1_90x700.png");
+    spriteTree.setPosition((resolution.x /2.0)-180,0);//(400,0) guess what yes also for my pc 
+    /*//Background Tree
+     Texture textureBackTree;/*************************************************************************************************************
+    textureBackTree.loadFromFile("graphics/tree2.png");//back_tree_1_90x700 also this
     Sprite spriteBackTree[NUM_TREE];
     for(int i =1 ; i<NUM_TREE; i++)
     {   if(350>(200*i)> 550)
             continue;
         spriteBackTree[i].setTexture(textureBackTree);
-        spriteBackTree[i].setPosition(200*i,-i*10);
-    }
+        spriteBackTree[i].setPosition(500*i,-i*10);
+    }*/
 // Prepare the bee
     Texture textureBee;
-    textureBee.loadFromFile("graphics/bee_50.png");
+    textureBee.loadFromFile("graphics/bee.png");//_50
     Sprite spriteBee;
     spriteBee.setTexture(textureBee);
-    spriteBee.setPosition(0,475);
+    spriteBee.setPosition(0,(resolution.y/2.0)+300);
 // Is the bee currently moving?
     bool beeActive = false;
 // How fast can the bee fly
@@ -59,7 +70,7 @@ int main()
 // make 3 cloud sprites from 1 texture
     Texture textureCloud;
 // Load 1 new texture
-    textureCloud.loadFromFile("graphics/cloud_50.png");    
+    textureCloud.loadFromFile("graphics/cloud.png"); //_50   
 // 3 New sprites with the same texture
     Sprite spriteCloud1;
     Sprite spriteCloud2;
@@ -88,7 +99,7 @@ int main()
     float timeBarHeight =40;
     timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
     timeBar.setFillColor(Color::Red);
-    timeBar.setPosition((1080 / 2) - timeBarStartWidth / 2, 700);
+    timeBar.setPosition((resolution.x  / 2) - timeBarStartWidth / 2, resolution.y- 150);
     Time gameTimeTotal;
     float timeRemaining = 6.0f;
     float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
@@ -122,12 +133,12 @@ int main()
 // Position the text
     FloatRect textRect = messageText.getLocalBounds();
     messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top +textRect.height / 2.0f);
-    messageText.setPosition(1080 / 2.0f, 768 / 2.0f);
+    messageText.setPosition(resolution.x  / 2.0f, resolution.y  / 2.0f);
     scoreText.setPosition(20, 20);
-    FPSText.setPosition(600, 20);
+    FPSText.setPosition(resolution.x -290, 20);
 // Prepare 6 branches
     Texture textureBranch;
-    textureBranch.loadFromFile("graphics/branch_50.png");
+    textureBranch.loadFromFile("graphics/branch.png");//_50
 // Set the texture for each branch sprite
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
@@ -135,37 +146,37 @@ int main()
         branches[i].setPosition(-1000, -1000);
 // Set the sprite's origin to dead centre
 // We can then spin it round without changing its position
-        branches[i].setOrigin(110, 10);//half of the size of image
+        branches[i].setOrigin(220, 40);//half of the size of image(110.10)
     }
 // Prepare the player
     Texture texturePlayer;
-    texturePlayer.loadFromFile("graphics/player_50.png");
+    texturePlayer.loadFromFile("graphics/player.png");//_50
     Sprite spritePlayer; 
     spritePlayer.setTexture(texturePlayer);
-    spritePlayer.setPosition(590, 560);
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);// (590, 590)
 // The player starts on the left
     side playerSide = side::LEFT;
 // Prepare the gravestone
     Texture textureRIP;
-    textureRIP.loadFromFile("graphics/rip_50.png");
+    textureRIP.loadFromFile("graphics/rip.png");
     Sprite spriteRIP;
     spriteRIP.setTexture(textureRIP);
-    spriteRIP.setPosition(590, 590);
+    spriteRIP.setPosition((resolution.x /2.0)+200 , resolution.y-320) ;// (590, 590)
 // Prepare the axe
     Texture textureAxe;
-    textureAxe.loadFromFile("graphics/axe_50.png");
+    textureAxe.loadFromFile("graphics/axe.png");
     Sprite spriteAxe;
     spriteAxe.setTexture(textureAxe);
-    spriteAxe.setPosition(525, 613);
+    spriteAxe.setPosition((resolution.x /2.0)+70, resolution.y-260);//(525, 613)
 // Line the axe up with the tree
-    const float AXE_POSITION_LEFT = 340;
-    const float AXE_POSITION_RIGHT = 525;
+    const float AXE_POSITION_LEFT = (resolution.x /2.0)-270;/******************************************************************/
+    const float AXE_POSITION_RIGHT = (resolution.x /2.0)+70;
 // Prepare the flying log
     Texture textureLog;
-    textureLog.loadFromFile("graphics/log_2_150x70.png");
+    textureLog.loadFromFile("graphics/log.png");//_2_150x70 for my pc also yap
     Sprite spriteLog;
     spriteLog.setTexture(textureLog);
-    spriteLog.setPosition(245, 550);
+    spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//   (245, 550)
 // Some other useful log related variables
     bool logActive = false;
     float logSpeedX = 1000;//1000
@@ -234,7 +245,7 @@ Handle the players input
 // Make sure the gravestone is hidden
     spriteRIP.setPosition(675, 2000);
 // Move the player into position
-    spritePlayer.setPosition(590, 560);
+    spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);// 590, 560
     acceptInput = true;
     }
 // Wrap the player controls to
@@ -250,12 +261,12 @@ Handle the players input
 // Add to the amount of time remaining
             timeRemaining += (2 / score) + .15;
             spriteAxe.setPosition(AXE_POSITION_RIGHT,spriteAxe.getPosition().y);
-            spritePlayer.setPosition(590, 560);/*****position to update*/
+            spritePlayer.setPosition((resolution.x /2.0)+200 , resolution.y-370);/*****position to update*/// 590, 560
             //spritePlayer.setRotation(0);
 // Update the branches
             updateBranches(score);
 // Set the log flying to the left
-            spriteLog.setPosition(245, 480);
+            spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//(245, 480)
             logSpeedX = -5000;//-5000
             logActive = true;
             acceptInput = false;
@@ -269,13 +280,14 @@ Handle the players input
             playerSide = side::LEFT;
             score++;
 // Add to the amount of time remaining
-            timeRemaining += (2 / score) + .15;spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
-            spritePlayer.setPosition(280, 560);
+            timeRemaining += (2 / score) + .15;
+            spriteAxe.setPosition(AXE_POSITION_LEFT,spriteAxe.getPosition().y);
+            spritePlayer.setPosition((resolution.x /2.0)-400 , resolution.y-370);//(280, 560
             //spritePlayer.setRotation(270);
 // update the branches
             updateBranches(score);
 // set the log flying
-            spriteLog.setPosition(300, 480);
+            spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );//(300, 480)
             logSpeedX = 5000;//5000
             logActive = true;
             acceptInput = false;
@@ -430,14 +442,14 @@ Update the scene
         if (branchPositions[i] == side::LEFT)
             {
             // Move the sprite to the left side
-            branches[i].setPosition(290, height);
+            branches[i].setPosition((resolution.x /2.0)-380, height);// 290
             // Flip the sprite round the other way
             branches[i].setRotation(190);
             }
         else if (branchPositions[i] == side::RIGHT)
             {
             // Move the sprite to the right side*
-            branches[i].setPosition(650, height);
+            branches[i].setPosition((resolution.x /2.0)+320 , height);//650
             // Set the sprite rotation to normal
             branches[i].setRotation(0);
             }
@@ -455,7 +467,7 @@ Update the scene
             {
                 // Set it up ready to be a whole new log next frame// log  that will be  moving  
                 logActive = false;
-                spriteLog.setPosition(400, 550);
+                spriteLog.setPosition((resolution.x /2.0)-180 ,resolution.y-300 );
             }
         }
         // has the player been squished by a branch?
@@ -467,14 +479,14 @@ Update the scene
             if(branchPositions[5] == side::LEFT)
             {
                 // Draw the gravestone
-                spriteRIP.setPosition(280, 590);
+                spriteRIP.setPosition((resolution.x /2.0)-400 , resolution.y-320) ;//(280, 590)
                 spriteLog.setPosition(2000, 550);//make them disapare from thr screen
                 spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
             } 
             if(branchPositions[5] == side::RIGHT)
             {
                 // Draw the gravestone
-                spriteRIP.setPosition(590, 590);
+                spriteRIP.setPosition((resolution.x /2.0)+200 , resolution.y-320);//(590, 590)
                 spriteLog.setPosition(2000, 550);
                 spriteAxe.setPosition(2000,spriteAxe.getPosition().y);
             }
@@ -485,7 +497,7 @@ Update the scene
             // Center it on the screen
             FloatRect textRect = messageText.getLocalBounds();
             messageText.setOrigin(textRect.left +textRect.width / 2.0f,textRect.top + textRect.height / 2.0f);
-            messageText.setPosition(1080 / 2.0f,768 / 2.0f);
+            messageText.setPosition(resolution.x /2.0f,resolution.y/2.0f);// (1080 / 2.0f,768 / 2.0f)
             // Play the death sound
             death.play();
             }
@@ -506,10 +518,10 @@ Draw the scene
     window.draw(spriteCloud1);
     window.draw(spriteCloud2);
     window.draw(spriteCloud3);
-    for(int i =1;i<NUM_TREE;i++)
+   /*for(int i =1;i<NUM_TREE;i++)
     {
-        window.draw(spriteBackTree[i]);
-    }
+        window.draw(spriteBackTree[i]);/*************************************************************************************************************
+    }*/ 
 // Draw the branches
     for (int i = 0; i < NUM_BRANCHES; i++) 
     {
