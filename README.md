@@ -6,7 +6,8 @@
 - How to Use</br>
 - Attention ⚠</br>
 -The features and objects of a game</br>
-<h3 align="left">How to Use: </h3>    
+<h3 align="left">How to Use: </h3>  
+For linux user</br>
 install sfml :sudo apt-get install libsfml-dev</br>
 install make :-sudo apt-get install  make</br>
               -cd Timber</br>
