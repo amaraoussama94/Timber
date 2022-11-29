@@ -4,7 +4,7 @@
 <h3 align="left"> Table of contents</h3>   
 - Table of contents</br>
 - How to Use</br>
-- Attention ⚠</br>
+-Generale info</br>
 -The features and objects of a game</br>
 <h3 align="left">How to Use: </h3>  
 For linux user</br>
