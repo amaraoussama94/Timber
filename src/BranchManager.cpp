@@ -13,12 +13,26 @@ void BranchManager::init() {
 }
 
 void BranchManager::drawBranches(sf::RenderWindow& window, sf::Vector2f resolution) {
+    const float treeCenterX = resolution.x / 2.0f;
+    const float baseY = resolution.y - 300.0f;
+    const float branchSpacing = 120.0f;
+
     for (int i = 0; i < NUM_BRANCHES; i++) {
-        float height = i * 150;
-        branches[i].setPosition(resolution.x / 2.0f, height);
+        float y = baseY - i * branchSpacing;
+
+        if (branchPositions[i] == side::LEFT) {
+            branches[i].setPosition(treeCenterX - 400, y); // Closer to center
+        } else if (branchPositions[i] == side::RIGHT) {
+            branches[i].setPosition(treeCenterX + 340, y);   // Closer to center
+        } else {
+            branches[i].setPosition(3000, y); // Hide off-screen
+        }
+
+        branches[i].setScale(1.0f, 1.0f);
         window.draw(branches[i]);
     }
 }
+
 
 void BranchManager::updateBranches(int seed) {
     for (int j = NUM_BRANCHES - 1; j > 0; j--)
