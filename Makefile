@@ -1,6 +1,6 @@
 # === CONFIGURATION ===
 # Sets the name of your final executable
-PROJECT_NAME = Timber
+PROJECT_NAME = Zombie_Shooter
 SRC_DIR = src
 INC_DIR = include
 BUILD_DIR = build
