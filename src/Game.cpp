@@ -218,6 +218,7 @@ void runGame() {
             if (branchManager.checkCollision(player.playerSide)) {
                 paused = true;
                 acceptInput = false;
+                player.sprite.setPosition(3000, resolution.y); // or use player.hide()
                 spriteRIP.setPosition(
                     player.playerSide == side::LEFT ?
                     (resolution.x / 2.0f) - 400 :
