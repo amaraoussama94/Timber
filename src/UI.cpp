@@ -1,3 +1,13 @@
+/**
+ * @file UI.cpp
+ * @brief Implementation of the UI class for managing user interface elements.
+ * @details This file contains the implementation of the UI class, which handles
+ * the initialization, updating, and rendering of user interface elements such as
+ * score display, time bar, and messages. It utilizes the SFML library for graphics rendering
+ * and text management.
+ * @author Oussama Amara
+ * @date 2025-08-15
+ */
 #include "UI.hpp"
 #include <sstream>
 

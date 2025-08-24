@@ -1,3 +1,11 @@
+/**
+ * @file BranchManager.cpp
+ * @brief Implementation of the BranchManager class for managing tree branches in "Timber!!!"
+ * @detail This class handles the initialization, updating, drawing, and collision detection of branches.
+ * @version 1.0
+ * @date 2025-08-15
+ * @author Oussama Amara
+ */
 #include "BranchManager.hpp"
 #include <ctime>
 
