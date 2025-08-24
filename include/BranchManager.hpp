@@ -22,5 +22,7 @@ public:
     void updateSprites(float resolutionX);
     bool checkCollision(const side& playerSide);
     void drawBranches(sf::RenderWindow& window, sf::Vector2f resolution);
+private:
+    sf::Texture branchTexture;
 
 };

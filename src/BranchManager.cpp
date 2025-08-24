@@ -10,10 +10,10 @@
 #include <ctime>
 
 void BranchManager::init() {
-    sf::Texture* texture = new sf::Texture();
-    texture->loadFromFile("graphics/branch.png");
+    //sf::Texture* texture = new sf::Texture();
+    branchTexture.loadFromFile("graphics/branch.png");
     for (int i = 0; i < NUM_BRANCHES; i++) {
-        branches[i].setTexture(*texture);
+        branches[i].setTexture(branchTexture);
         branches[i].setPosition(-1000, -1000);
         branches[i].setOrigin(220, 40);
         branchPositions[i] = side::NONE;
