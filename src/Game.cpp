@@ -1,12 +1,3 @@
-/**
- * @file Game.cpp
- * @brief Main game loop and core logic for "Timber!!!"
- * @details This file contains the main game loop, event handling, rendering, and integration 
- * of modular components such as Player, BranchManager, SoundManager, and UI.
- * @version 1.0
- * @date 2025-08-15
- * @author Oussama Amara
- */
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <sstream>
@@ -18,9 +9,17 @@
 #include "BranchManager.hpp"
 #include "SoundManager.hpp"
 #include "UI.hpp"
+#include <fstream>
 
 void runGame() {
     using namespace sf;
+    int highScore = 0;
+    
+    std::ifstream in("highscore.txt");
+    if (in >> highScore) {
+        // loaded successfully
+    }
+
 
     // === Setup resolution and window ===
     Vector2f resolution(VideoMode::getDesktopMode().width, VideoMode::getDesktopMode().height);
@@ -238,6 +237,13 @@ void runGame() {
                 spriteAxe.setPosition(2000, spriteAxe.getPosition().y);
                 ui.showMessage("SQUISHED!!", resolution);
                 soundManager.death.play();
+                if (score > highScore) {
+                    highScore = score;                    
+                    std::ofstream out("highscore.txt");
+                    out << highScore;
+
+                }
+
             }
         }
 
