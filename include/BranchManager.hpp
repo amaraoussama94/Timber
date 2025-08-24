@@ -16,6 +16,7 @@ public:
     static const int NUM_BRANCHES = 6;
     sf::Sprite branches[NUM_BRANCHES];
     side branchPositions[NUM_BRANCHES];
+    static const int COLLISION_INDEX = 2;  
 
     void init();
     void updateBranches(int seed);

@@ -69,5 +69,6 @@ void BranchManager::updateSprites(float resolutionX) {
 }
 
 bool BranchManager::checkCollision(const side& playerSide) {
-    return branchPositions[NUM_BRANCHES - 1] == playerSide;
+    return branchPositions[COLLISION_INDEX] == playerSide;
 }
+
