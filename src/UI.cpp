@@ -18,6 +18,12 @@ void UI::init(const sf::Vector2f& resolution) {
     scoreText.setFont(font);
     FPSText.setFont(font);
 
+    highScoreText.setFont(font);
+    highScoreText.setCharacterSize(50);
+    highScoreText.setFillColor(sf::Color::White);
+    highScoreText.setPosition(20, 80); // Below scoreText
+
+
     messageText.setString("Press Enter to start!");
     scoreText.setString("Score = 0");
     FPSText.setString("FPS = 0");
@@ -43,6 +49,7 @@ void UI::init(const sf::Vector2f& resolution) {
 }
 void UI::draw(sf::RenderWindow& window) {
     window.draw(scoreText);
+    window.draw(highScoreText);
     window.draw(messageText);
     window.draw(timeBar);
     window.draw(FPSText);
@@ -71,4 +78,10 @@ void UI::showMessage(const std::string& message, const sf::Vector2f& resolution)
     messageText.setOrigin(textRect.left + textRect.width / 2.0f,
                           textRect.top + textRect.height / 2.0f);
     messageText.setPosition(resolution.x / 2.0f, resolution.y / 2.0f);
+}
+
+void UI::updateHighScore(int highScore) {
+    std::stringstream ss;
+    ss << "High Score = " << highScore;
+    highScoreText.setString(ss.str());
 }

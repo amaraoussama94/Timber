@@ -16,6 +16,8 @@ public:
     sf::Text messageText, scoreText, FPSText;
     sf::Font font;
     sf::RectangleShape timeBar;
+    sf::Text highScoreText;
+
 
     void init(const sf::Vector2f& resolution);
     void draw(sf::RenderWindow& window);
@@ -24,4 +26,5 @@ public:
     void updateFPS(float fps);
     void updateTimeBar(float timeRemaining, float timeBarWidthPerSecond);
     void showMessage(const std::string& message, const sf::Vector2f& resolution);
+    void updateHighScore(int highScore) ;
 };
