@@ -213,6 +213,7 @@ void runGame() {
             cloudLogic(spriteCloud3, cloud3Active, cloud3Speed, 300);
 
             ui.updateScore(score);
+            ui.updateHighScore(highScore);
             branchManager.updateSprites(resolution.x);
 
             // Log movement
@@ -241,6 +242,7 @@ void runGame() {
                     highScore = score;                    
                     std::ofstream out("highscore.txt");
                     out << highScore;
+                    ui.updateHighScore(highScore);
 
                 }
 
