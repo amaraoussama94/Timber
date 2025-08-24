@@ -1,3 +1,12 @@
+/**
+ * @file BranchManager.hpp
+ * @brief Manages the branches in the Timber!!! game.
+ * This class handles the initialization, updating, and rendering of branches.
+ * It also checks for collisions between the player and branches.
+ * @version 1.0
+ * @date 2025-8-15
+ * @author Oussama Amara
+ */
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Player.hpp"

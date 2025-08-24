@@ -1,3 +1,13 @@
+/**
+ * @file UI.hpp
+ * @brief User Interface management for the Timber!!! game.
+ * This file contains the declaration of the UI class, which handles
+ * displaying score, time bar, messages, and FPS in the game window.
+ * It uses SFML for rendering text and shapes.
+ * @version 1.0
+ * @date 2024-08-15
+ * @author Oussama Amara
+ */
 #pragma once
 #include <SFML/Graphics.hpp>
 
