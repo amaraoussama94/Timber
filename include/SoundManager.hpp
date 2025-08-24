@@ -17,4 +17,8 @@ public:
     sf::Sound chop, death, outOfTime;
 
     void init();
+private:
+    sf::SoundBuffer chopBuffer;
+    sf::SoundBuffer deathBuffer;
+    sf::SoundBuffer outOfTimeBuffer;
 };

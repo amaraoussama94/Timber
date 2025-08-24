@@ -10,15 +10,24 @@
 #include "SoundManager.hpp"
 
 void SoundManager::init() {
-    sf::SoundBuffer* chopBuffer = new sf::SoundBuffer();
-    sf::SoundBuffer* deathBuffer = new sf::SoundBuffer();
-    sf::SoundBuffer* ootBuffer = new sf::SoundBuffer();
+   // sf::SoundBuffer* chopBuffer = new sf::SoundBuffer();
+    //sf::SoundBuffer* deathBuffer = new sf::SoundBuffer();
+    //sf::SoundBuffer* ootBuffer = new sf::SoundBuffer();    
+    if (!chopBuffer.loadFromFile("sound/chop.wav")) {
+        // Optional: log error or fallback
+    }
+    if (!deathBuffer.loadFromFile("sound/death.wav")) {
+        // Optional: log error or fallback
+    }
+    if (!outOfTimeBuffer.loadFromFile("sound/time_out.flac")) {
+        // Optional: log error or fallback
+    }
 
-    chopBuffer->loadFromFile("sound/chop.wav");
-    deathBuffer->loadFromFile("sound/death.wav");
-    ootBuffer->loadFromFile("sound/time_out.flac");
+    chopBuffer.loadFromFile("sound/chop.wav");
+    deathBuffer.loadFromFile("sound/death.wav");
+    outOfTimeBuffer.loadFromFile("sound/time_out.flac");
 
-    chop.setBuffer(*chopBuffer);
-    death.setBuffer(*deathBuffer);
-    outOfTime.setBuffer(*ootBuffer);
+    chop.setBuffer(chopBuffer);
+    death.setBuffer(deathBuffer);
+    outOfTime.setBuffer(outOfTimeBuffer);
 }
