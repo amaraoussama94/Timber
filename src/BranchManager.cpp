@@ -1,11 +1,19 @@
+/**
+ * @file BranchManager.cpp
+ * @brief Implementation of the BranchManager class for managing tree branches in "Timber!!!"
+ * @detail This class handles the initialization, updating, drawing, and collision detection of branches.
+ * @version 1.0
+ * @date 2025-08-15
+ * @author Oussama Amara
+ */
 #include "BranchManager.hpp"
 #include <ctime>
 
 void BranchManager::init() {
-    sf::Texture* texture = new sf::Texture();
-    texture->loadFromFile("graphics/branch.png");
+    //sf::Texture* texture = new sf::Texture();
+    branchTexture.loadFromFile("graphics/branch.png");
     for (int i = 0; i < NUM_BRANCHES; i++) {
-        branches[i].setTexture(*texture);
+        branches[i].setTexture(branchTexture);
         branches[i].setPosition(-1000, -1000);
         branches[i].setOrigin(220, 40);
         branchPositions[i] = side::NONE;

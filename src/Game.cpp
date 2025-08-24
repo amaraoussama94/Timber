@@ -1,3 +1,12 @@
+/**
+ * @file Game.cpp
+ * @brief Main game loop and core logic for "Timber!!!"
+ * @details This file contains the main game loop, event handling, rendering, and integration 
+ * of modular components such as Player, BranchManager, SoundManager, and UI.
+ * @version 1.0
+ * @date 2025-08-15
+ * @author Oussama Amara
+ */
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <sstream>

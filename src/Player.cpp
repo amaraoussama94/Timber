@@ -1,3 +1,12 @@
+/**
+ * @file Player.cpp
+ * @brief Implementation of the Player class for managing player character.
+ * This includes initialization, movement, and hiding functionality.
+ * The player can move between left and right sides of the screen.
+ * @version 1.0
+ * @date 2025-08-15
+ * @author Oussama Amara
+ */
 #include "Player.hpp"
 
 void Player::init(const sf::Vector2f& resolution) {
