@@ -199,8 +199,8 @@ jobs:
           cp -r graphics release/Timber-windows/ || echo "No graphics folder"
 
           # Copy sounds to both
-          cp -r sounds release/Timber-linux/ || echo "No sounds folder"
-          cp -r sounds release/Timber-windows/ || echo "No sounds folder"
+          cp -r sound release/Timber-linux/ || echo "No sounds folder"
+          cp -r sound release/Timber-windows/ || echo "No sounds folder"
 
           # Copy levels to both
           cp -r levels release/Timber-linux/ || echo "No levels folder"
